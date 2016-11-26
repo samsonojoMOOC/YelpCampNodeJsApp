@@ -25,7 +25,9 @@ var commentRoutes = require("./routes/comments"),
     indexRoutes = require("./routes/index");
     
 
-mongoose.connect("mongodb://localhost/hifeed");
+// mongoose.connect("mongodb://localhost/hifeed");
+mongoose.connect("mongodb://samson:samosamo@ds111188.mlab.com:11188/hifeed");
+
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
