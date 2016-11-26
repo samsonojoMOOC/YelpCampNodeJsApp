@@ -24,9 +24,9 @@ var commentRoutes = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
     indexRoutes = require("./routes/index");
     
+var url = process.env.DATABASEURL || "mongodb://localhost/hifeed";
+mongoose.connect(url);
 
- mongoose.connect(process.env.DATABASEURL);
-//mongoose.connect("mongodb://samson:samosamo@ds111188.mlab.com:11188/hifeed");
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
