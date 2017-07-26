@@ -7,6 +7,7 @@ var express       = require("express"),
     LocalStrategy = require("passport-local"),
     methodOverride = require("method-override"),
     Campground    = require("./models/campground"),
+    Post          = require("./models/post"),
     Comment       = require("./models/comment"),
     User          = require("./models/user"),
     seedDB        = require("./seeds");
@@ -22,6 +23,7 @@ var express       = require("express"),
     //requiring routes
 var commentRoutes = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
+    postRoutes = require("./routes/posts"),
     indexRoutes = require("./routes/index");
     
 var url = process.env.DATABASEURL || "mongodb://localhost/hifeed";
@@ -58,7 +60,8 @@ app.use(function(req, res, next){
 
 //we are using each of the routes
 app.use("/",indexRoutes);
-app.use("/campgrounds", campgroundRoutes);
+//app.use("/campgrounds", campgroundRoutes);
+app.use("/posts", postRoutes);
 app.use("/campgrounds/:id/comments",commentRoutes);
 
 
